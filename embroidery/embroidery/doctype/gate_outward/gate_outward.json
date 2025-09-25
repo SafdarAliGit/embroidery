@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "GOUT-EMB-.#####",
  "creation": "2025-09-22 20:45:37.673618",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -73,14 +74,14 @@
    "options": "Gate Outward Item"
   }
  ],
- "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-09-22 20:50:16.257588",
+ "modified": "2025-09-25 21:11:52.609564",
  "modified_by": "Administrator",
  "module": "Embroidery",
  "name": "Gate Outward",
+ "naming_rule": "Expression (old style)",
  "owner": "Administrator",
  "permissions": [
   {
@@ -97,7 +98,6 @@
    "write": 1
   }
  ],
- "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": []
