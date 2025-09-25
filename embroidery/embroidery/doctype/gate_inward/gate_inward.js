@@ -10,7 +10,16 @@ frappe.ui.form.on("Gate Inward", {
                 }
             };
         });
+        frm.set_query("lot_no", "gate_inward_item", function(doc, cdt, cdn) {
+            var child = locals[cdt][cdn];
+            return {
+                filters: {
+                    "item": child.item
+                }
+            };
+        });
 	},
+
 });
 
 
