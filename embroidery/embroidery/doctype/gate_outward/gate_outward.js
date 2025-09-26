@@ -32,7 +32,7 @@ function calculate_rate(frm, cdt, cdn) {
         let rate = 0;
 
         // Apply conditions
-        if (row.embroidery_type === "Alternate & Folding") {
+        if (row.embroidery_type === "Alternate" || row.embroidery_type === "Folding") {
             rate = (row.stitches / 1000) * row.constant;
         } else if (row.embroidery_type === "Sheet") {
             rate = ((row.stitches * 3) / 1000) * row.constant * 1;
