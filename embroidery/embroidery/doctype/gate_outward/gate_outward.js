@@ -28,19 +28,15 @@ frappe.ui.form.on("Gate Outward Item", {
 function calculate_rate(frm, cdt, cdn) {
     let row = locals[cdt][cdn];
 
-    let stitches = Number(row.stitches) || 0;
-    let constant = Number(row.constant) || 0;
-    let qty = Number(row.qty) || 0;
-
     let rate = 0;
 
     if (row.embroidery_type === "Alternate" || row.embroidery_type === "Folding") {
-        rate = (stitches / 1000) * constant;
+        rate = (row.stitches / 1000) * row.constant;
     } else if (row.embroidery_type === "Sheet") {
-        rate = (stitches * 3 / 1000) * constant;
+        rate = (row.stitches * 3 / 1000) * row.constant;
     }
 
-    let amount = rate * qty;
+    let amount = rate * row.qty;
 
     frappe.model.set_value(cdt, cdn, {
         rate: rate,
