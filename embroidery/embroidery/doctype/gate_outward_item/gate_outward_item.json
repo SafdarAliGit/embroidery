@@ -82,7 +82,7 @@
    "fieldname": "embroidery_type",
    "fieldtype": "Select",
    "label": "Embroidery Type",
-   "options": "\nSheet\nAlternate & Folding"
+   "options": "\nSheet\nAlternate\nFolding"
   },
   {
    "default": "1.2",
@@ -94,7 +94,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-09-26 22:39:02.592434",
+ "modified": "2025-09-26 23:08:09.592291",
  "modified_by": "Administrator",
  "module": "Embroidery",
  "name": "Gate Outward Item",
