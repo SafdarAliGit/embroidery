@@ -13,7 +13,9 @@
   "party",
   "items_section",
   "gate_outward_item",
-  "amended_from"
+  "amended_from",
+  "section_break_glygu",
+  "total_amount"
  ],
  "fields": [
   {
@@ -72,12 +74,23 @@
    "fieldtype": "Table",
    "label": "Gate Outward Item",
    "options": "Gate Outward Item"
+  },
+  {
+   "fieldname": "section_break_glygu",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "label": "Total Amount",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-09-25 21:11:52.609564",
+ "modified": "2025-09-26 23:36:43.042775",
  "modified_by": "Administrator",
  "module": "Embroidery",
  "name": "Gate Outward",

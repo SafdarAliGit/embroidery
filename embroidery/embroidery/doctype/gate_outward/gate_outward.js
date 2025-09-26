@@ -32,6 +32,7 @@ function calculate_rate(frm, cdt, cdn) {
     let row = locals[cdt][cdn];
 
     let rate = 0;
+    let total_amount = 0;
 
     if (row.embroidery_type === "Alternate" || row.embroidery_type === "Folding") {
         rate = (row.stitches / 1000) * row.constant;
@@ -45,4 +46,8 @@ function calculate_rate(frm, cdt, cdn) {
         rate: rate,
         amount: amount
     });
+    frm.doc.gate_outward_item.forEach(function(row) {
+        total_amount += row.amount || 0;
+    });
+    frm.set_value("total_amount", total_amount);
 }
