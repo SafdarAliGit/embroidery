@@ -14,7 +14,9 @@
   "lot_no",
   "stitches",
   "rate",
-  "amount"
+  "amount",
+  "embroidery_type",
+  "constant"
  ],
  "fields": [
   {
@@ -43,7 +45,7 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Color",
-   "options": "Colors"
+   "options": "Color"
   },
   {
    "fieldname": "lot_no",
@@ -75,19 +77,29 @@
    "fieldtype": "Currency",
    "in_list_view": 1,
    "label": "Amount"
+  },
+  {
+   "fieldname": "embroidery_type",
+   "fieldtype": "Select",
+   "label": "Embroidery Type",
+   "options": "\nSheet\nAlternate & Folding"
+  },
+  {
+   "default": "1.2",
+   "fieldname": "constant",
+   "fieldtype": "Float",
+   "label": "Constant"
   }
  ],
- "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-09-22 21:12:18.555149",
+ "modified": "2025-09-26 22:39:02.592434",
  "modified_by": "Administrator",
  "module": "Embroidery",
  "name": "Gate Outward Item",
  "owner": "Administrator",
  "permissions": [],
- "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": []
