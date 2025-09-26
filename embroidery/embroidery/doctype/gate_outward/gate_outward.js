@@ -22,6 +22,9 @@ frappe.ui.form.on("Gate Outward Item", {
     },
     constant: function(frm, cdt, cdn) {
         calculate_rate(frm, cdt, cdn);
+    },
+    qty: function(frm, cdt, cdn) {
+        calculate_rate(frm, cdt, cdn);
     }
 });
 
