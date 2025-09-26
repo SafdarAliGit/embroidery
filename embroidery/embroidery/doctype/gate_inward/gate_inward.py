@@ -45,7 +45,7 @@ class GateInward(Document):
 				"uom": item_row.uom,
 				"t_warehouse": self.source_warehouse,
 				"batch_no": getattr(item_row, "lot_no", None),
-				"allow_zero_valuation": 1 if item_row.allow_zero_valuation else 0,
+				"allow_zero_valuation_rate": 1 if item_row.allow_zero_valuation else 0,
 			})
 		se.submit()
 		frappe.msgprint(f"Stock Entry {se.name} created for Gate Inward {self.name}")
