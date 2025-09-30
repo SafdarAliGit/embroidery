@@ -15,7 +15,9 @@
   "gate_outward_item",
   "amended_from",
   "section_break_glygu",
-  "total_amount"
+  "total_amount",
+  "section_break_nsfmq",
+  "linked_sales_invoice"
  ],
  "fields": [
   {
@@ -85,12 +87,23 @@
    "fieldtype": "Currency",
    "label": "Total Amount",
    "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "linked_sales_invoice",
+   "fieldtype": "Data",
+   "label": "Linked Sales Invoice"
+  },
+  {
+   "fieldname": "section_break_nsfmq",
+   "fieldtype": "Section Break",
+   "label": "Sales Invoice Link"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-09-26 23:36:43.042775",
+ "modified": "2025-09-30 18:45:54.666790",
  "modified_by": "Administrator",
  "module": "Embroidery",
  "name": "Gate Outward",
