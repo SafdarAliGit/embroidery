@@ -6,7 +6,7 @@ def get_gate_outward_list(name=None, party=None):
     """
     Fetch Gate Outward documents not yet linked with a Sales Invoice.
     """
-    filters = {"linked_sales_invoice": ["is", "not set"]}   # exclude already linked
+    filters = {"linked_sales_invoice": ["is", "not set"],"docstatus": 1}   # exclude already linked
 
     if name:
         filters["name"] = name

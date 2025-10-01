@@ -123,10 +123,12 @@ function load_gate_outwards(d) {
                 $wrap.empty();
 
                 let html = `
-                    <table class="table table-bordered">
+                    <table class="table table-bordered" id="gate-outward-table">
                         <thead>
                             <tr>
-                                <th>Select</th>
+                                <th>
+                                  <input type="checkbox" id="select-all-gate-outwards" />
+                                </th>
                                 <th>Gate Outward</th>
                                 <th>Date</th>
                                 <th>Customer</th>
@@ -138,7 +140,7 @@ function load_gate_outwards(d) {
                 r.message.forEach(go => {
                     html += `
                         <tr>
-                            <td><input type="checkbox" value="${go.name}"></td>
+                            <td><input class="child-gate-outward-checkbox" type="checkbox" value="${go.name}"></td>
                             <td>${go.name}</td>
                             <td>${go.date}</td>
                             <td>${go.party || ""}</td>
@@ -146,9 +148,35 @@ function load_gate_outwards(d) {
                     `;
                 });
 
-                html += `</tbody></table>`;
+                html += `
+                        </tbody>
+                    </table>
+                `;
                 $wrap.html(html);
+
+                // After HTML is in DOM, bind event handlers
+
+                // “Select All” checkbox
+                $wrap.find("#select-all-gate-outwards").on("change", function () {
+                    let checked = this.checked;
+                    $wrap.find(".child-gate-outward-checkbox").each(function () {
+                        this.checked = checked;
+                    });
+                });
+
+                // Optionally: if all child boxes are manually checked/un-checked, reflect that in Select All
+                $wrap.find(".child-gate-outward-checkbox").on("change", function () {
+                    let all = $wrap.find(".child-gate-outward-checkbox");
+                    let checkedCount = all.filter(":checked").length;
+                    let selAll = $wrap.find("#select-all-gate-outwards")[0];
+                    if (checkedCount === all.length) {
+                        selAll.checked = true;
+                    } else {
+                        selAll.checked = false;
+                    }
+                });
             }
         }
     });
 }
+
