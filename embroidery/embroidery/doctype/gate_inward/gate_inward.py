@@ -6,7 +6,33 @@ from frappe.model.document import Document
 
 
 class GateInward(Document):
+	
 	def on_submit(self):
+		if not self.lot_no:
+			frappe.throw("Lot No is required")
+		for item in self.gate_inward_item:
+			# Generate unique batch_id for each item row
+			batch_id = f"{self.lot_no}-{item.idx}"
+
+			# Create Batch document
+			batch = frappe.new_doc("Batch")
+			batch.item = item.item
+			batch.batch_id = batch_id
+			batch.stock_uom = item.uom
+			batch.batch_qty = item.qty
+			batch.insert()
+
+			# Update lot_no in child row (Gate Inward Item)
+			frappe.db.set_value(
+				item.doctype,  # usually "Gate Inward Item"
+				item.name,     # child row name (unique)
+				"lot_no",      # fieldname in child
+				batch.name     # set to created batch name or batch_id as you prefer
+			)
+
+		# Reload child table values after update
+		self.reload()
+
 		"""
 		When Gate Inward is submitted, create a Stock Entry (Material Receipt)
 		**only if** there isn't already a Stock Entry for this Gate Inward

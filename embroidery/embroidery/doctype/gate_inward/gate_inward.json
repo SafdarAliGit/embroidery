@@ -12,6 +12,8 @@
   "source_warehouse",
   "column_break_bmlr",
   "party",
+  "column_break_vfvxa",
+  "lot_no",
   "items_section",
   "gate_inward_item"
  ],
@@ -62,19 +64,21 @@
    "fieldtype": "Table",
    "label": "Gate Inward Item",
    "options": "Gate Inward Item"
+  },
+  {
+   "fieldname": "column_break_vfvxa",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "lot_no",
+   "fieldtype": "Data",
+   "label": "Lot No"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
- "links": [
-  {
-   "custom": 1,
-   "group": "Gate Inward Stock Entry",
-   "link_doctype": "Stock Entry",
-   "link_fieldname": "custom_gate_inward"
-  }
- ],
- "modified": "2025-09-25 21:10:28.092696",
+ "links": [],
+ "modified": "2025-10-10 18:02:48.587216",
  "modified_by": "Administrator",
  "module": "Embroidery",
  "name": "Gate Inward",
