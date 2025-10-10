@@ -1,8 +1,9 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "GOUT-EMB-.#####",
- "creation": "2025-09-22 20:45:37.673618",
+ "autoname": "GP-EMB-.#####",
+ "creation": "2025-10-10 20:56:22.173300",
+ "default_view": "List",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
@@ -11,15 +12,9 @@
   "source_warehouse",
   "column_break_bmlr",
   "party",
-  "column_break_nzwci",
-  "gate_pass",
   "items_section",
-  "gate_outward_item",
-  "amended_from",
-  "section_break_glygu",
-  "total_amount",
-  "section_break_nsfmq",
-  "linked_sales_invoice"
+  "gate_pass_item",
+  "amended_from"
  ],
  "fields": [
   {
@@ -31,16 +26,6 @@
   {
    "fieldname": "column_break_270s",
    "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "amended_from",
-   "fieldtype": "Link",
-   "label": "Amended From",
-   "no_copy": 1,
-   "options": "Gate Outward",
-   "print_hide": 1,
-   "read_only": 1,
-   "search_index": 1
   },
   {
    "fieldname": "source_warehouse",
@@ -66,59 +51,39 @@
   {
    "fieldname": "amended_from",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Amended From",
    "no_copy": 1,
-   "options": "Gate Outward",
+   "options": "Gate Pass",
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
   },
   {
-   "fieldname": "gate_outward_item",
-   "fieldtype": "Table",
-   "label": "Gate Outward Item",
-   "options": "Gate Outward Item"
-  },
-  {
-   "fieldname": "section_break_glygu",
-   "fieldtype": "Section Break"
-  },
-  {
-   "default": "0",
-   "fieldname": "total_amount",
-   "fieldtype": "Currency",
-   "label": "Total Amount",
-   "read_only": 1
-  },
-  {
-   "allow_on_submit": 1,
-   "fieldname": "linked_sales_invoice",
-   "fieldtype": "Data",
-   "label": "Linked Sales Invoice"
-  },
-  {
-   "fieldname": "section_break_nsfmq",
-   "fieldtype": "Section Break",
-   "label": "Sales Invoice Link"
-  },
-  {
-   "fieldname": "column_break_nzwci",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "gate_pass",
+   "fieldname": "amended_from",
    "fieldtype": "Link",
-   "label": "Gate Pass",
-   "options": "Gate Pass"
+   "hidden": 1,
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Gate Pass",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "gate_pass_item",
+   "fieldtype": "Table",
+   "label": "Gate Pass Item",
+   "options": "Gate Pass Item"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-10-10 21:45:07.656459",
+ "modified": "2025-10-10 21:18:54.886451",
  "modified_by": "Administrator",
  "module": "Embroidery",
- "name": "Gate Outward",
+ "name": "Gate Pass",
  "naming_rule": "Expression (old style)",
  "owner": "Administrator",
  "permissions": [

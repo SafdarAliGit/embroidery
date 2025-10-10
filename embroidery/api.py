@@ -94,3 +94,20 @@ def on_cancel(doc, method):
         frappe.db.set_value("Gate Outward", go, "linked_sales_invoice", None)
 
 
+
+@frappe.whitelist()
+def fetch_gate_pass_items(parent_name):
+    if not parent_name:
+        return []
+
+    items = frappe.db.get_list(
+        "Gate Pass Item",
+        filters={"parent": parent_name},
+        fields=[
+            "item", "design_no", "qty", "uom", "color", "lot_no",
+            "stitches", "embroidery_type", "constant",
+            "description", "item_name", "income_account"
+        ],
+        order_by="idx asc"
+    )
+    return items

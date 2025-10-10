@@ -1,0 +1,113 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-10-10 20:57:41.760586",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "item",
+  "design_no",
+  "qty",
+  "uom",
+  "color",
+  "lot_no",
+  "stitches",
+  "embroidery_type",
+  "constant",
+  "description",
+  "item_name",
+  "income_account"
+ ],
+ "fields": [
+  {
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Item",
+   "options": "Item"
+  },
+  {
+   "fieldname": "design_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Design No"
+  },
+  {
+   "fieldname": "qty",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Qty"
+  },
+  {
+   "fetch_from": "item.stock_uom",
+   "fieldname": "uom",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "UOM",
+   "read_only": 1
+  },
+  {
+   "fieldname": "color",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Color",
+   "options": "Color"
+  },
+  {
+   "fieldname": "lot_no",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "LOT No",
+   "options": "Batch"
+  },
+  {
+   "fieldname": "stitches",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Stitches"
+  },
+  {
+   "fieldname": "embroidery_type",
+   "fieldtype": "Select",
+   "label": "Embroidery Type",
+   "options": "\nSheet\nAlternate\nFolding"
+  },
+  {
+   "default": "1.2",
+   "fieldname": "constant",
+   "fieldtype": "Float",
+   "label": "Constant"
+  },
+  {
+   "fetch_from": "item.description",
+   "fieldname": "description",
+   "fieldtype": "Data",
+   "label": "Description"
+  },
+  {
+   "fetch_from": "item.item_name",
+   "fieldname": "item_name",
+   "fieldtype": "Data",
+   "label": "Item Name"
+  },
+  {
+   "fieldname": "income_account",
+   "fieldtype": "Data",
+   "label": "Income Account"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-10-10 20:57:41.760586",
+ "modified_by": "Administrator",
+ "module": "Embroidery",
+ "name": "Gate Pass Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
