@@ -11,8 +11,6 @@
   "source_warehouse",
   "column_break_bmlr",
   "party",
-  "column_break_nzwci",
-  "gate_pass",
   "items_section",
   "gate_outward_item",
   "amended_from",
@@ -100,22 +98,12 @@
    "fieldname": "section_break_nsfmq",
    "fieldtype": "Section Break",
    "label": "Sales Invoice Link"
-  },
-  {
-   "fieldname": "column_break_nzwci",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "gate_pass",
-   "fieldtype": "Link",
-   "label": "Gate Pass",
-   "options": "Gate Pass"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-10-10 21:45:07.656459",
+ "modified": "2025-10-11 16:40:21.218860",
  "modified_by": "Administrator",
  "module": "Embroidery",
  "name": "Gate Outward",

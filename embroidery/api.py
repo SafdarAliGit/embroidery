@@ -94,6 +94,34 @@ def on_cancel(doc, method):
         frappe.db.set_value("Gate Outward", go, "linked_sales_invoice", None)
 
 
+def on_submit_gate_outward(doc, method):
+    """
+    When Sales Invoice is submitted, link selected Gate Outward(s).
+    """
+    gate_passes = set()
+
+    # Collect all Gate Outward from child rows
+    for row in doc.gate_outward_item:
+        if row.gate_pass:   # you may need to add this field in child table
+            gate_passes.add(row.gate_pass)
+
+    for gp in gate_passes:
+        frappe.db.set_value("Gate Pass", gp, "linked_gate_outward", doc.name)
+
+
+def on_cancel_gate_outward(doc, method):
+    """
+    When Sales Invoice is cancelled, unlink Gate Outward(s).
+    """
+    gate_passes = set()
+
+    for row in doc.gate_outward_item:
+        if row.gate_pass:
+            gate_passes.add(row.gate_pass)
+
+    for gp in gate_passes:
+        frappe.db.set_value("Gate Pass", gp, "linked_gate_outward", None)
+
 
 @frappe.whitelist()
 def fetch_gate_pass_items(parent_name):
@@ -110,4 +138,65 @@ def fetch_gate_pass_items(parent_name):
         ],
         order_by="idx asc"
     )
+    return items
+
+
+@frappe.whitelist()
+def get_gate_pass_list(name=None, party=None):
+    """
+    Fetch Gate Outward documents not yet linked with a Sales Invoice.
+    """
+    filters = {"linked_gate_outward": ["is", "not set"],"docstatus": 1}   # exclude already linked
+
+    if name:
+        filters["name"] = name
+    if party:
+        filters["party"] = party
+
+    gate_passes = frappe.get_all(
+        "Gate Pass",
+        filters=filters,
+        fields=["name", "date", "party"]
+    )
+    return gate_passes
+
+
+
+@frappe.whitelist()
+def get_gate_pass_items(gate_pass_names):
+    """
+    Fetch child items from selected Gate Pass(s).
+    Args:
+        gate_pass_names (list | str): One or more Gate Pass names
+    Returns:
+        list of dict: items with mapped fields for Sales Invoice child table
+    """
+    if isinstance(gate_pass_names, str):
+        # If JS passes as JSON string
+        import json
+        gate_pass_names = json.loads(gate_pass_names)
+
+    items = []
+    for gp_name in gate_pass_names:
+        children = frappe.get_all(
+            "Gate Pass Item",
+            filters={"parent": gp_name},
+            fields=[
+                 "item",
+                 "design_no",
+                 "qty",
+                 "uom",
+                 "color",
+                 "lot_no",
+                 "stitches",
+                 "embroidery_type",
+                 "constant",
+                 "description",
+                 "item_name",
+                 "income_account",
+                 "parent"
+            ]
+        )
+        items.extend(children)
+
     return items

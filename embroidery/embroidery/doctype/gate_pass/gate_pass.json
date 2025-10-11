@@ -14,7 +14,8 @@
   "party",
   "items_section",
   "gate_pass_item",
-  "amended_from"
+  "amended_from",
+  "linked_gate_outward"
  ],
  "fields": [
   {
@@ -75,12 +76,18 @@
    "fieldtype": "Table",
    "label": "Gate Pass Item",
    "options": "Gate Pass Item"
+  },
+  {
+   "fieldname": "linked_gate_outward",
+   "fieldtype": "Link",
+   "label": "Linked Gate Outward",
+   "options": "Gate Outward"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-10-10 21:18:54.886451",
+ "modified": "2025-10-11 16:24:50.337672",
  "modified_by": "Administrator",
  "module": "Embroidery",
  "name": "Gate Pass",

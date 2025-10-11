@@ -148,6 +148,10 @@ doc_events = {
     "Sales Invoice": {
         "on_submit": "embroidery.api.on_submit",
         "on_cancel": "embroidery.api.on_cancel"
+    },
+    "Gate Outward": {
+        "on_submit": "embroidery.api.on_submit_gate_outward",
+        "on_cancel": "embroidery.api.on_cancel_gate_outward"
     }
 }
 # Scheduled Tasks

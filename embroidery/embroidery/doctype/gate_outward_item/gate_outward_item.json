@@ -19,7 +19,8 @@
   "constant",
   "description",
   "item_name",
-  "income_account"
+  "income_account",
+  "gate_pass"
  ],
  "fields": [
   {
@@ -109,12 +110,18 @@
    "fieldname": "income_account",
    "fieldtype": "Data",
    "label": "Income Account"
+  },
+  {
+   "fieldname": "gate_pass",
+   "fieldtype": "Link",
+   "label": "Gate Pass",
+   "options": "Gate Pass"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-09-30 19:13:41.488696",
+ "modified": "2025-10-11 17:25:08.163469",
  "modified_by": "Administrator",
  "module": "Embroidery",
  "name": "Gate Outward Item",
