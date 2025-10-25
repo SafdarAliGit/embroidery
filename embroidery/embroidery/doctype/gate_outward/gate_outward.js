@@ -204,7 +204,7 @@ function open_gate_pass_dialog(frm) {
                             row.qty = it.qty;
                             row.uom = it.uom;
                             row.color = it.color;
-                            row.batch_no = it.lot_no;
+                            row.lot_no = it.lot_no;
                             row.stitches = it.stitches;
                             row.embroidery_type = it.embroidery_type;
                             row.constant = it.constant;
