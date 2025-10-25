@@ -14,8 +14,10 @@
   "party",
   "items_section",
   "gate_pass_item",
-  "amended_from",
-  "linked_gate_outward"
+  "section_break_bsi0a",
+  "total_qty",
+  "linked_gate_outward",
+  "amended_from"
  ],
  "fields": [
   {
@@ -82,12 +84,23 @@
    "fieldtype": "Link",
    "label": "Linked Gate Outward",
    "options": "Gate Outward"
+  },
+  {
+   "fieldname": "section_break_bsi0a",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_qty",
+   "fieldtype": "Float",
+   "label": "Total Qty",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-10-11 16:24:50.337672",
+ "modified": "2025-10-25 21:50:13.340319",
  "modified_by": "Administrator",
  "module": "Embroidery",
  "name": "Gate Pass",
