@@ -42,6 +42,19 @@ function open_gate_outward_dialog(frm) {
                 onchange: () => load_gate_outwards(d)
             },
             {
+                fieldname: "cb3",
+                label: "",
+                fieldtype: "Column Break",
+               
+            },
+            {
+                fieldname: "lot_no",
+                label: "Lot No",
+                fieldtype: "Link",
+                options: "Batch",
+                onchange: () => load_gate_outwards(d)
+            },
+            {
                 fieldname: "sb",
                 fieldtype: "Section Break"
             },
@@ -113,10 +126,11 @@ function open_gate_outward_dialog(frm) {
 function load_gate_outwards(d) {
     let name = d.get_value("name");
     let party = d.get_value("party");
+    let lot_no = d.get_value("lot_no");
 
     frappe.call({
         method: "embroidery.api.get_gate_outward_list",
-        args: { name: name, party: party },
+        args: { name: name, party: party, lot_no: lot_no },
         callback: function (r) {
             if (r.message) {
                 let $wrap = d.get_field("gate_outward_list").$wrapper;

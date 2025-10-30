@@ -2,16 +2,28 @@ import frappe
 from frappe import _
 
 @frappe.whitelist()
-def get_gate_outward_list(name=None, party=None):
-    """
-    Fetch Gate Outward documents not yet linked with a Sales Invoice.
-    """
-    filters = {"linked_sales_invoice": ["is", "not set"],"docstatus": 1}   # exclude already linked
+def get_gate_outward_list(name=None, party=None, lot_no=None):
+    filters = {
+        "linked_sales_invoice": ["is", "not set"],
+        "docstatus": 1
+    }
 
     if name:
         filters["name"] = name
     if party:
         filters["party"] = party
+
+    if lot_no:
+        # query the child table first for parent names
+        parent_names = [d.parent for d in frappe.get_all(
+            "Gate Outward Item",
+            filters={"lot_no": lot_no},
+            fields=["parent"]
+        )]
+        if not parent_names:
+            # nothing matches, return empty
+            return []
+        filters["name"] = ["in", parent_names]
 
     gate_outwards = frappe.get_all(
         "Gate Outward",
@@ -19,6 +31,7 @@ def get_gate_outward_list(name=None, party=None):
         fields=["name", "date", "party"]
     )
     return gate_outwards
+
 
 
 
